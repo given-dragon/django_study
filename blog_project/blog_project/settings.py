@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'portfolio', 'static'),
+]   #static 파일이 어디있는지 기재
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  #static 파일이 모일곳 기재
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')    #media 파일을 모을곳
+MEDIA_URL = '/media/'   #파일에 대한 url값 설계 ex)homepageurl/media/filename
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
