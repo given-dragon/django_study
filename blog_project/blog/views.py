@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Blog
 from django.utils import timezone
 
+
 def home(request):
     blog = Blog.objects #쿼리셋
     return render(request, 'home.html', {'blogs':blog})
