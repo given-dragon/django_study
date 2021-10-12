@@ -20,7 +20,7 @@ class BlogCreate(CreateView):
 
 class BlogDetail(DetailView):
     model = ClassBlog
-
+    
 class BlogUpdate(UpdateView):
     model = ClassBlog
     fields = ['title', 'body']
