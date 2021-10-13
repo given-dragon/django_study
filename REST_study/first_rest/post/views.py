@@ -12,6 +12,7 @@ from django.http import Http404
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from .pagination import MyPagination
 # Create your views here.
 
 #rest는 cbv
@@ -19,8 +20,9 @@ from rest_framework.views import APIView
 #     queryset = Post.objects.all()
 #     serializer_class = PostSerializer
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('id')
     serializer_class = PostSerializer
+    pagination_class = MyPagination
 
     # @action(method=['post'])
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
